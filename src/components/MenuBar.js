@@ -1,51 +1,66 @@
 import React from 'react';
-// import './MenuBar.css';
+import './MenuBar.css';
 
-const MenuBar = ({menu}) => {
-    return (
-        <div className="ui massive vertical menu" style={{backgroundColor: 'green'}}>
-            <div classname="avatar">
-                <i class="user circle icon"></i>
-            </div>
-            <div class="ui divider"></div>
-            <div class="ui list">
-            <div class="item">
-                <div class="content">
-                    <i class="microsoft icon"></i>
-                    <a href="">Dashboard</a>
+class MenuBar extends React.Component {
+    state = { dashboard:  null}
+
+
+    onDashboardSelect = () => {
+        this.setState({dashboard: "/"});
+    }
+
+    onAccreditationSelect = () => {
+        this.setState({accreditation: "/"});
+    }
+
+    
+
+    render() {
+        return (
+            <div className="ui massive vertical menu sideMenu" style={{backgroundColor: 'green'}}>
+                <div className="avatar">
+                    <i className="user circle icon"></i>
+                </div>
+                <div className="ui divider"></div>
+                <div className="ui list">
+                <div onClick={this.onDashboardSelect} className="item">
+                    <div className="content">
+                        <i className="microsoft icon"></i>
+                        <a href="">Dashboard</a>
+                    </div>
+                </div>
+                <div className="ui divider"></div>
+                <div onClick={this.onSelect} className="item">
+                    <div className="content">
+                    <i className="check circle icon"></i>
+                    <a href="">Accreditations</a>
+                    </div>
+                </div>
+                <div className="ui divider"></div>
+                <div className="item">
+                    <div className="content">
+                    <i className="user icon"></i>
+                    <a href="">Enrolment</a>
+                    </div>
+                </div>
+                <div className="ui divider"></div>
+                <div className="item">
+                    <div className="content">
+                    <i className="credit card icon"></i>
+                    <a href="">Subscription</a>
+                    </div>
+                </div>
+                <div className="ui divider"></div>
+                <div className="item">
+                    <div className="content">
+                    <i className="clipboard list icon"></i>
+                    <a href="">Reports</a>
+                    </div>
+                </div>
                 </div>
             </div>
-            <div class="ui divider"></div>
-            <div class="item">
-                <div class="content">
-                <i class="check circle icon"></i>
-                <a href="">Accreditations</a>
-                </div>
-            </div>
-            <div class="ui divider"></div>
-            <div class="item">
-                <div class="content">
-                <i class="user icon"></i>
-                <a href="">Enrolment</a>
-                </div>
-            </div>
-            <div class="ui divider"></div>
-            <div class="item">
-                <div class="content">
-                <i class="credit card icon"></i>
-                <a href="">Subscription</a>
-                </div>
-            </div>
-            <div class="ui divider"></div>
-            <div class="item">
-                <div class="content">
-                <i class="clipboard list icon"></i>
-                <a href="">Reports</a>
-                </div>
-            </div>
-            </div>
-        </div>
-    )
+        )
+    }
 
 };
 

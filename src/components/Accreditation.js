@@ -7,8 +7,9 @@ import MenuBar from './MenuBar';
 import Header from './Header';
 import Footer from './Footer';
 import Dashboard from './Dashboard';
+// import Dashboard from './Dashboard';
 
-class App extends React.Component {
+class Accreditation extends React.Component {
     state = { videos: [], selectedResult: null, selectedMenu: null };
 
     componentDidMount() {
@@ -43,12 +44,9 @@ class App extends React.Component {
                             <MenuBar />
                         </div>
                         <div className="twelve wide column">
-                        <Dashboard />
-                        </div>
-                        <div className="eight wide column">
                             <ResultDetail video={this.state.selectedResult} />
+                            
                         </div>
-                        
                         <div className="four wide column">
                             <SearchBar onFormSubmit={this.onSearchSubmit} />
                             Total: {this.state.videos.length} records.
@@ -56,10 +54,10 @@ class App extends React.Component {
                         </div>
                     </div>
                 </div> 
-                <Footer />
+                {/* <Footer /> */}
             </div> 
         );
     }
 }
 
-export default App;
+export default Accreditation;

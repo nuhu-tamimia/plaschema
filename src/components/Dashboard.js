@@ -1,22 +1,41 @@
 import React from 'react';
+import { Card } from 'semantic-ui-react'
 
-const Dashboard = ({video}) => {
-    if (!video) {
-        return <div>Loading...</div>
-    }
+const Dashboard = () => {
+  return(
+    <div>
+    <Card.Group>
+    <Card>
+      <Card.Content>
+        <Card.Header>ACCREDITATION</Card.Header>
+        <Card.Description>
+          Matthew is a pianist living in Nashville.
+        </Card.Description>
+      </Card.Content>
+    </Card>
 
-    return (
-        <div>
-            <div className="ui segment">
-                <h4 className="ui header">{video.snippet.channelTitle}</h4>
-                <img className="ui image" src={video.snippet.thumbnails.medium.url} />
-                <p>Name: {video.snippet.title}</p>
-                <p>Description: {video.snippet.description}</p>
-                <p>ID: {video.snippet.channelId}</p>
-                <p>Date: {video.snippet.publishTime}</p>
-                <p>Height: {video.snippet.thumbnails.medium.height}</p>
-            </div>
-        </div>
-    )
+    <Card>
+      <Card.Content>
+        <Card.Header content='ENROLMENT' />
+        <Card.Description content='' />
+      </Card.Content>
+    </Card>
+
+    <Card>
+      <Card.Content
+        header='SUBSCRIPTION'
+        description='Elliot is a music producer living in Chicago.'
+      />
+    </Card>
+
+    <Card
+      header='REPORTS'
+      description='Jenny is a student studying Media Management at the New School'
+    />
+  </Card.Group>
+  </div>
+
+  );
 };
+
 export default Dashboard;

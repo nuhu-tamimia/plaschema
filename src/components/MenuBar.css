@@ -1,0 +1,9 @@
+.item {
+    cursor: pointer;
+}
+
+.sideMenu {
+    display: flex;
+    flex-direction: column;
+    height: 82vh;
+}
