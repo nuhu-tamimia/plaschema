@@ -9,7 +9,7 @@ const ResultDetail = ({video}) => {
         <div>
             <div className="ui segment">
                 <h4 className="ui header">{video.snippet.channelTitle}</h4>
-                <img className="ui image" src={video.snippet.thumbnails.medium.url} />
+                <img className="ui image" src={video.snippet.thumbnails.medium.url} alt="" />
                 <p>Name: {video.snippet.title}</p>
                 <p>Description: {video.snippet.description}</p>
                 <p>ID: {video.snippet.channelId}</p>

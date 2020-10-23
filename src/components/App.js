@@ -4,12 +4,20 @@ import plaschemaAPI from '../apis/plaschemaAPI';
 import ResultList from './ResultList';
 import ResultDetail from './ResultDetail';
 import MenuBar from './MenuBar';
-import Header from './Header';
-import Footer from './Footer';
-import Dashboard from './Dashboard';
+import Header from './header/Header';
+import Footer from './footer/Footer';
+import Dashboard from './dashboard/Dashboard';
 
 class App extends React.Component {
-    state = { videos: [], selectedResult: null, selectedMenu: null };
+    constructor() {
+        super();
+        this.state = {
+            videos: [],
+            selectedResult: null,
+            selectedMenu: null,
+            showAccreditations: false
+        };
+    }
 
     componentDidMount() {
         this.onSearchSubmit('cat');
@@ -26,38 +34,49 @@ class App extends React.Component {
     }
 
     onResultSelect = (video) => {
-        this.setState({selectedResult: video});
+        this.setState({ selectedResult: video });
     }
 
     onMenuSelect = (menu) => {
-        this.setState({selectedMenu: menu});
+        this.setState({ selectedMenu: menu });
+    }
+
+    showAccreditations = () => {
+        return this.setState((prevState, preProps) => ({ showAccreditations: !prevState.showAccreditations }));
     }
 
     render() {
+        console.log(this.state.showAccreditations)
         return (
             <div>
                 <Header />
                 <div className="ui grid">
                     <div className="ui row">
                         <div className="four wide column">
-                            <MenuBar />
+                            <MenuBar showAccreditations={this.showAccreditations} />
                         </div>
                         <div className="twelve wide column">
-                        <Dashboard />
+                            <Dashboard />
                         </div>
-                        <div className="eight wide column">
-                            <ResultDetail video={this.state.selectedResult} />
-                        </div>
-                        
-                        <div className="four wide column">
-                            <SearchBar onFormSubmit={this.onSearchSubmit} />
-                            Total: {this.state.videos.length} records.
-                            <ResultList onResultSelect={this.onResultSelect} videos={this.state.videos} />
-                        </div>
+                        {
+                            this.state.showAccreditations ?
+                                <>
+                                    <div className="eight wide column">
+                                        <ResultDetail video={this.state.selectedResult} />
+                                    </div>
+                                    
+                                    <div className="four wide column">
+                                        <SearchBar onFormSubmit={this.onSearchSubmit} />
+                                        Total: {this.state.videos.length} records.
+                                        <ResultList onResultSelect={this.onResultSelect} videos={this.state.videos} />
+                                    </div> 
+                                </>
+                            : null
+                        }
                     </div>
-                </div> 
+                </div>
                 <Footer />
-            </div> 
+            </div>
         );
     }
 }

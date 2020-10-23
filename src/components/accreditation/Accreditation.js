@@ -1,11 +1,11 @@
 import React from 'react';
-import SearchBar from './SearchBar';
-import plaschemaAPI from '../apis/plaschemaAPI';
-import ResultList from './ResultList';
-import ResultDetail from './ResultDetail';
-import MenuBar from './MenuBar';
-import Header from './Header';
-import Footer from './Footer';
+import SearchBar from '../SearchBar';
+import plaschemaAPI from '../../apis/plaschemaAPI';
+import ResultList from '../ResultList';
+import ResultDetail from '../ResultDetail';
+import MenuBar from '../MenuBar';
+import Header from '../header/Header';
+import Footer from '../footer/Footer';
 import Dashboard from './Dashboard';
 // import Dashboard from './Dashboard';
 
