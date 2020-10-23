@@ -42,9 +42,7 @@ class App extends React.Component {
                         <div className="four wide column">
                             <MenuBar />
                         </div>
-                        <div className="twelve wide column">
-                        <Dashboard />
-                        </div>
+                        
                         <div className="eight wide column">
                             <ResultDetail video={this.state.selectedResult} />
                         </div>
