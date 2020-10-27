@@ -1,0 +1,28 @@
+.content-overlay {
+  position: fixed;
+  top: 55px;
+  right: 0;
+  bottom: 0;
+  width: 80vw;
+  height: 82vh;
+  background: rgb(255, 255, 255);
+  /* background: rgba(255, 255, 255, 0.4); */
+  overflow-y: scroll;
+  padding-top: 5%;
+  display: flex;
+  justify-content: center;
+}
+
+.content-wrapper {
+  display: flex;
+  justify-content: center;
+  background: white;
+  width: 90%;
+  height: 40rem;
+  padding-top: 60px;
+}
+
+.content-wrapper .eight {
+  margin-right: 10px;
+}
+

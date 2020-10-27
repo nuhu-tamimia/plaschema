@@ -7,6 +7,7 @@ import MenuBar from './MenuBar';
 import Header from './header/Header';
 import Footer from './footer/Footer';
 import Dashboard from './dashboard/Dashboard';
+import "./App.css";
 
 class App extends React.Component {
     constructor() {
@@ -42,7 +43,12 @@ class App extends React.Component {
     }
 
     showAccreditations = () => {
-        return this.setState((prevState, preProps) => ({ showAccreditations: !prevState.showAccreditations }));
+        // this.setState((prevState, preProps) => ({ showAccreditations: !prevState.showAccreditations }));
+        this.setState({ showAccreditations: true })
+    }
+
+    returnToDashboard = () => {
+        this.setState({ showAccreditations: false });
     }
 
     render() {
@@ -53,25 +59,29 @@ class App extends React.Component {
                 <div className="ui grid">
                     <div className="ui row">
                         <div className="four wide column">
-                            <MenuBar showAccreditations={this.showAccreditations} />
+                            <MenuBar
+                                showAccreditations={this.showAccreditations}
+                                returnToDashboard={this.returnToDashboard} />
                         </div>
                         <div className="twelve wide column">
                             <Dashboard />
                         </div>
                         {
                             this.state.showAccreditations ?
-                                <>
-                                    <div className="eight wide column">
-                                        <ResultDetail video={this.state.selectedResult} />
+                                <div className="content-overlay">
+                                    <div className="content-wrapper">
+                                        <div className="eight wide column">
+                                            <ResultDetail video={this.state.selectedResult} />
+                                        </div>
+
+                                        <div className="four wide column">
+                                            <SearchBar onFormSubmit={this.onSearchSubmit} />
+                                            Total: {this.state.videos.length} records.
+                                            <ResultList onResultSelect={this.onResultSelect} videos={this.state.videos} />
+                                        </div>
                                     </div>
-                                    
-                                    <div className="four wide column">
-                                        <SearchBar onFormSubmit={this.onSearchSubmit} />
-                                        Total: {this.state.videos.length} records.
-                                        <ResultList onResultSelect={this.onResultSelect} videos={this.state.videos} />
-                                    </div> 
-                                </>
-                            : null
+                                </div>
+                                : null
                         }
                     </div>
                 </div>

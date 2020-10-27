@@ -23,10 +23,10 @@ class MenuBar extends React.Component {
                 </div>
                 <div className="ui divider"></div>
                 <div className="ui list">
-                    <div onClick={this.onDashboardSelect} className="item">
+                    <div onClick={this.props.returnToDashboard} className="item">
                         <div className="content">
                             <i className="microsoft icon"></i>
-                            <a href="">Dashboard</a>
+                            <p>Dashboard</p>
                         </div>
                     </div>
                     <div className="ui divider"></div>
@@ -37,10 +37,10 @@ class MenuBar extends React.Component {
                         </div>
                     </div>
                     <div className="ui divider"></div>
-                    <div className="item">
+                    <div className="item" onClick={this.props.showAccreditations}>
                         <div className="content">
                             <i className="user icon"></i>
-                            <a href="">Enrolment</a>
+                            <p>Enrolment</p>
                         </div>
                     </div>
                     <div className="ui divider"></div>
